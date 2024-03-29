@@ -21,8 +21,9 @@ app.use(session({
 }));
 
 const razorpay = new Razorpay({
-  key_id: 'rzp_test_o2gjG5fQUCPsaf',
-  key_secret: 'QauWaN24nnlg7KuvDoIHDpAZ',
+  // Please Enter your own razorpay credentials...
+  key_id: 'YOUR_RAZORPAY_KEY_ID', 
+  key_secret: 'YOUR_RAZORPAY_KEY_SECRET',
 })
 
 app.post("/api/detect", async (req, res) => {
@@ -110,13 +111,6 @@ app.get("/home", (req, res) => {
 // Razorpay payment route
 app.post("/api/payment", async (req, res) => {
     try {
-      // const options = {
-      //   amount: req.body.price, // amount in the smallest currency unit (e.g., paise in INR)
-      //   currency: "INR", // currency code (e.g., INR)
-      //   receipt: "receipt1", // order ID or receipt ID
-      //   payment_capture: 1 // auto-capture payment after successful authorization
-      // };
-
       const amount = req.body.amount;
       if(!amount || amount <= 0) {
         return res.status(400).json({error:"Invalid amount. Please provide a positive value."});
@@ -128,12 +122,7 @@ app.post("/api/payment", async (req, res) => {
         amount: amountInPaise,
         currency: "INR", //Assuming INR currency for this example
         
-        receipt: "Your_order_receipt_id", //Replace with a unique receipt ID for your reference
-
-        // notes: {
-        //   key1: 'value1',
-        //   key2: 'value2',
-        // }
+        receipt: "Your_order_receipt_id", //Replace with a unique receipt ID for your reference [Can Be anything you can type anything does not matter]
       };
 
       // Create an order using Razorpay API
@@ -146,38 +135,12 @@ app.post("/api/payment", async (req, res) => {
         // Order created successfully
         // console.log("Order created:", order);
         res.json(order);
-  
-          // Redirect to the Razorpay payment page
-          // const redirectUrl = `https://${order.razorpay_payment_link.domain}/${order.razorpay_payment_link.id}`;
-          // res.redirect(redirectUrl);
       });
     } catch (error) {
       console.error("Unexpected Error: ", error);
       res.status(500).json({error: "Internal server error."});
     }
   });
-//   try {
-//     const options = {
-//       amount: req.body.amount, // amount in the smallest currency unit (e.g., paise in INR)
-//       currency: req.body.currency, // currency code (e.g., INR)
-//       receipt: req.body.receipt, // order ID or receipt ID
-//       payment_capture: 1 // auto-capture payment after successful authorization
-//     };
-
-//     // Create an order using Razorpay API
-//     razorpay.orders.create(options, (err, order) => {
-//       if (err) {
-//         console.error("Error creating order:", err);
-//         res.status(500).json({ success: false, message: "An error occurred while creating order" });
-//       } else {
-//         console.log("Order created:", order);
-//         res.status(200).json({ success: true, order });
-//       }
-//     });
-//   } catch (error) {
-//     console.error("Error:", error);
-//     res.status(500).json({ success: false, message: "An error occurred" });
-//   }
 
 // Razorpay webhook route
 app.post('/razorpay-webhook', (req, res) => {
