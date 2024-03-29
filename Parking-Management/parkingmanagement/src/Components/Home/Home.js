@@ -1,3 +1,4 @@
+// Imported the files for Home Component.
 import React, {useEffect, useState} from 'react'
 import './Home.css'
 import menu from '../Assets/car-logo.png';
@@ -10,7 +11,6 @@ const Home = () => {
   const [isSideNavOpen,setIsSideNavOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState('');
-  // const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
   const toggleSideNav = () => {
@@ -25,23 +25,12 @@ const Home = () => {
       if (userNameFromCookie) {
         setUserName(userNameFromCookie);
         setIsLoggedIn(true);
-        // setShowPopup(true);
-        // setTimeout(()=> {
-          // setShowPopup(false);
-        // }, 5000);
       } else {
         console.warn("Name cookie not found or empty!")
       }
     }
   }, []);
-
-  // const Popup = () => (
-  //   <div className='popup'>
-  //     <p>Welcome {userName}!!!</p>
-  //   </div>
-  // );
   
-
   const handleBooking = () => {
     navigate("/ParkingForm")
   }
