@@ -155,7 +155,7 @@
 //       </div>
 //       <div>
 //         <LoadScript
-//           googleMapsApiKey="AIzaSyDvnz1strFJ3epdlvuDdJfmNCS6WmKeTS4">
+//           googleMapsApiKey="YOUR_GOOGLE_API_KEY">
 //           <GoogleMap
 //             mapContainerStyle={containerStyle}
 //             center={mapCenter}
