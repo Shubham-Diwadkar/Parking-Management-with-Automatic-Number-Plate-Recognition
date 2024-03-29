@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License Plate Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://i.pinimg.com/originals/5a/80/29/5a8029d622d15914e020276a69578e51.gif') center center/cover no-repeat fixed; /* Funny GIF as background */
+            color: #fff; /* White text color */
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black container background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            animation: popUp 0.5s ease forwards, earthquake 0.5s ease infinite; /* Animation applied to the container */
+        }
+        @keyframes popUp {
+            0% { opacity: 0; transform: scale(0.5); } /* Initial state */
+            100% { opacity: 1; transform: scale(1); } /* Final state */
+        }
+        @keyframes earthquake {
+            0% { transform: translateX(0); } /* Initial state */
+            20% { transform: translateX(-5px); } /* Move left */
+            40% { transform: translateX(5px); } /* Move right */
+            60% { transform: translateX(-3px); } /* Move left */
+            80% { transform: translateX(3px); } /* Move right */
+            100% { transform: translateX(0); } /* Back to initial position */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff; /* White heading color */
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white form background */
+            padding: 20px;
+            border-radius: 8px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333; /* Dark grey label text color */
+        }
+        input[type="text"],
+        input[type="file"],
+        input[type="submit"] {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            color: #333; /* Dark grey input text color */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+        input[type="submit"] {
+            background-color: #ff6600; /* Orange button */
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #cc5500; /* Darker orange on hover */
+        }
+        #result {
+            margin-top: 20px;
+            color: #fff; /* White text color for result */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>License Plate Detection</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" id="phone_number" name="phone_number" required>
+            <label for="file">Upload Image:</label>
+            <input type="file" id="file" name="file" required>
+            <input type="submit" value="Upload">
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            uploadImage();
+        });
+
+        function uploadImage() {
+            const form = document.getElementById('uploadForm');
+            const formData = new FormData(form);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('result').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = 'An error occurred. Please try again later.';
+            });
+        }
+    </script>
+</body>
+</html>

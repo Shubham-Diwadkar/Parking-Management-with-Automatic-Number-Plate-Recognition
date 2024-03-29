@@ -1,0 +1,44 @@
+.ue {
+    margin: 20px auto;
+    width: 80%;
+  }
+  
+.ue button {
+  width: 20%;
+    height: 45px;
+    background: #0a7413;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fcfcfc;
+    font-weight: 700;
+}
+  
+  .uet {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .uet th, .uet td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .uet th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .uet tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .uet tbody tr:hover {
+    background-color: #ddd;
+  }
+  

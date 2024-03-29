@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.me {
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background: linear-gradient(75deg, rgb(245, 77, 5)0%, rgb(218, 84, 57)35%, rgb(242, 112, 61)100%);
+}
+
+.wrapper2 {
+    width: auto;
+    height: auto;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    padding-left: 20px; /* Add left padding */
+    margin-bottom: 20px; /* Add margin bottom to create space */
+    margin-top: 20px;
+}
+
+.wrapper2 h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper2 .input-box2,
+.wrapper2 .input-box2 select {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box2 input
+{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    padding: 20px 45px 20px 20px;
+    color: #ffffff;
+}
+
+.input-box2 select {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    padding: 0px 45px 0px 20px;
+    color: #ffffff;
+}
+
+.input-box2 input::placeholder,
+.input-box2 select::placeholder {
+    color: #fff;
+}
+
+.input-box2 select::-ms-expand {
+    display: none;
+}
+
+.input-box1 .icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+}
+
+.wrapper2 button {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+}
+
+.input-box2 select option {
+    color: #000000; /* Change text color to black */
+}
+
+.subBtn1
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Add the Google Maps container style */
+.google-map-container {
+    width: 100%; /* Adjust width as needed */
+    height: 400px; /* Adjust height as needed */
+    border-radius: 10px; /* Add border radius */
+    margin-top: 20px; /* Add margin for separation */
+}
+
+
+
+/* Optional: Additional styling for the map if needed */
+.google-map {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; /* Add border radius */
+}
+
+.me p {
+    font-size: 14px;
+    color: #000000;
+    margin-top: 10px;
+    background-color: rgb(255, 0, 0); /* Set background color to white */
+    font-weight: bold;
+    margin-left: 20px; /* Adjust margin to match map container */
+}
+
+.leaflet-container {
+    height: 600px;
+    width: 100%;
+}
+
+
+/* Add styling for Maps2 component */
+
+/* Adjust the container holding the map */
+.maps2-container {
+    width: 100%; /* Adjust width as needed */
+    height: 400px; /* Adjust height as needed */
+    border-radius: 10px; /* Add border radius */
+    margin-top: 20px; /* Add margin for separation */
+}
+
+/* Optional: Additional styling for the map if needed */
+.maps2-map {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; /* Add border radius */
+}
+
+.Maps {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; /* Add border radius */
+}
