@@ -1,11 +1,10 @@
+// Imported required libraries for Registration Form Component
 import React, { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import "./Registerform.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Registerform = () => {
@@ -18,11 +17,7 @@ const Registerform = () => {
 
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-
-//   const notify = (message) => {
-//    //  toast(message);
-//     console.log(`tostify with message: ${message}`);
-//   };
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -40,7 +35,6 @@ const Registerform = () => {
     } else if (formData.password.length < 6) {
       validationErrors.password =
         "Use atleast 6 characters!";
-      // notify(validationErrors.password);
     }
 
     if (formData.confirmpassword !== formData.password) {
