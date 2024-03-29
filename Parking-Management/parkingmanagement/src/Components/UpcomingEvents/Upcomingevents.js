@@ -1,3 +1,4 @@
+// Imported required libraries for Upcoming Events Component
 import './Upcomingevents.css'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
